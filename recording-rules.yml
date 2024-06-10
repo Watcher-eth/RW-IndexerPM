@@ -1,0 +1,7 @@
+groups:
+  - name: ponder_sync
+    rules:
+      - record: ponder_indexing_lag_seconds
+        expr: time() - ponder_indexing_completed_timestamp
+      - record: ponder_sync_percentage
+        expr: ponder_indexing_completed_seconds / ponder_indexing_total_seconds * 100
